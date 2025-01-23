@@ -8,13 +8,13 @@ import edge_tts
 from openai import OpenAI
 # fa-IR-DilaraNeural
 VOICE = "fa-IR-DilaraNeural"
-OUTPUT_FILE = "C:/Users/Mobile Gandom/Desktop/project_files/tes.mp3"
+OUTPUT_FILE = "Path-to-test.mp3"
 messages = []
 client = OpenAI(
     base_url="https://api-inference.huggingface.co/v1/",
-    api_key="your_api_key"
+    api_key="your_hugging-face_api_key"
 )
-model = Model("vosk-model")
+model = Model("path-to-persian-vosk-model")
 recognizer = KaldiRecognizer(model, 16000)
 with open("tt.txt", 'w') as file:  
     pass 
