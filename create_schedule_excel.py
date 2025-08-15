@@ -125,17 +125,17 @@ def build_workbook(output_path: str) -> None:
 		ws.cell(row=idx, column=8, value=group)
 		ws.cell(row=idx, column=9, value="")
 
-	# Project end milestone aligned to 4 months from start
+	# Project end milestone aligned to 6 months from start
 	idx_end = len(tasks) + 2
 	ws.cell(row=idx_end, column=1, value="10")
-	ws.cell(row=idx_end, column=2, value="پایان پروژه (۴ ماه)")
+	ws.cell(row=idx_end, column=2, value="پایان پروژه (۶ ماه)")
 	ws.cell(row=idx_end, column=3, value=1)
-	ws.cell(row=idx_end, column=4).value = f"=NETWORKDAYS.INTL(Settings!$B$2, EDATE(Settings!$B$2, 4), Settings!$B$3, Holidays!$A$2:$A$1000) - C{idx_end}"
+	ws.cell(row=idx_end, column=4).value = f"=NETWORKDAYS.INTL(Settings!$B$2, EDATE(Settings!$B$2, 6), Settings!$B$3, Holidays!$A$2:$A$1000) - C{idx_end}"
 	start_cell = ws.cell(row=idx_end, column=5)
 	finish_cell = ws.cell(row=idx_end, column=6)
 	start_cell.value = f"=WORKDAY.INTL(Settings!$B$2, D{idx_end}, Settings!$B$3, Holidays!$A$2:$A$1000)"
 	finish_cell.value = f"=WORKDAY.INTL(E{idx_end}, C{idx_end}-1, Settings!$B$3, Holidays!$A$2:$A$1000)"
-	ws.cell(row=idx_end, column=7, value="نشانگر پایان ۴ ماهه")
+	ws.cell(row=idx_end, column=7, value="نشانگر پایان ۶ ماهه")
 	ws.cell(row=idx_end, column=8, value="کنترل مدت")
 	ws.cell(row=idx_end, column=9, value="")
 
